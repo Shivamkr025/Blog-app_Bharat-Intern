@@ -6,6 +6,7 @@ const salt = 10
 const userSignup = async (req, res) => {
     const { email, password } = req.body
     try {
+
         const userData = await User.findOne({ email })
         if (userData) {
             return res.status(400).json({ error: "user already create account " })
@@ -27,6 +28,7 @@ const userSignup = async (req, res) => {
 const userLogin = async (req, res) => {
     const { email, password } = req.body
     try {
+
         const userData = await User.findOne({ email })
         if (!userData) {
             return res.status(400).json({ error: "please signup your account ..." })
@@ -107,7 +109,5 @@ const deleteUser = async (req, res) => {
         res.status(500).json({ error: "Something went wrong in delete function" });
     }
 };
-
-
 
 export { userSignup, userLogin, allUser, updateUser , deleteUser}
