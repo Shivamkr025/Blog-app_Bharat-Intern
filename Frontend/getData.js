@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const fetchAndDisplayBlogs = async () => {
         try {
-            const response = await fetch('http://localhost:7011/show/blog');
+            const response = await fetch('https://blog-app-bharat-intern.onrender.com/show/blog');
             const data = await response.json();
 
             if (response.ok) {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(email);
 
         try {
-            const response = await fetch(`http://localhost:7011/find/blog/byEmail?email=${encodeURIComponent(email)}`);
+            const response = await fetch(`https://blog-app-bharat-intern.onrender.com/find/blog/byEmail?email=${encodeURIComponent(email)}`);
 
             const data = await response.json();
 

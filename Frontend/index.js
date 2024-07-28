@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const password = passwordInput.value;
 
             try {
-                const response = await fetch('http://localhost:7011/blog/users/signup', {
+                const response = await fetch('https://blog-app-bharat-intern.onrender.com/blog/users/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const password = passwordInput.value;
 
             try {
-                const response = await fetch('http://localhost:7011/blog/users/login', {
+                const response = await fetch('https://blog-app-bharat-intern.onrender.com/blog/users/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             try {
-                const response = await fetch('http://localhost:7011/create/blog', {
+                const response = await fetch('https://blog-app-bharat-intern.onrender.com/create/blog', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
