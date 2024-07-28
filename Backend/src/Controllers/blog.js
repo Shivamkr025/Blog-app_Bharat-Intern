@@ -1,22 +1,36 @@
 import { blog } from "../Models/blogSchema.js";
+import { User } from "../Models/userSchema.js";
 
 const showBlog = async (req, res) => {
 
     try {
-        const seeBlog = await blog.find({})
-        if (!seeBlog) {
-            return res.status(400).json({ message: "Sorry blog is not found ...!" })
-        }
+        const seeBlog = await blog.find()
 
-        res.status(200).json({ seeBlog })
+        res.status(200).json({seeBlog })
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "something went wrong in showBlog function..." })
     }
 }
 
+const findBlogByEmail = async (req, res) => {
+    const {email} = req.query
+    try {
+        const seeBlog = await blog.find({author : email});
+        if (!seeBlog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        res.status(200).json({ seeBlog });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Something went wrong in findBlogByEmail function" });
+    }
+}
+
+
 const createBlog = async (req, res) => {
-    const { title, body } = req.body;
+    const { title, content , author} = req.body;
     try {
 
         const checkBlog = await blog.findOne({ title });
@@ -26,11 +40,12 @@ const createBlog = async (req, res) => {
 
         const newPost = new blog({
             title,
-            body,
-            author: req.user.email
+            content,
+            author
         });
 
         const submit = await newPost.save();
+        console.log(submit);
         res.status(201).json({ submit });
     } catch (error) {
         console.log(error);
@@ -64,7 +79,7 @@ const searchBlog = async (req, res) => {
 
 
 const updateBlog = async (req, res) => {
-    const { title, newTitle, body } = req.body;
+    const { title, newTitle, content } = req.body;
 
     try {
         const findPost = await blog.findOne({ title });
@@ -73,15 +88,11 @@ const updateBlog = async (req, res) => {
             return res.status(404).json({ message: 'Blog not found.' });
         }
 
-        if (req.user.email !== findPost.author) {
-            return res.status(401).json({ message: 'User not found or unauthorized' });
-        }
-
         const updatedPost = await blog.findOneAndUpdate(
             { title },
             {
                 title: newTitle || findPost.title,
-                body: body || findPost.body
+                content: content || findPost.content
             },
             { new: true }
         );
@@ -104,10 +115,6 @@ const deleteBlog = async (req, res) => {
             return res.status(404).json({ message: 'Blog not found.' });
         }
 
-        if (req.user.email !== findPost.author) {
-            return res.status(401).json({ message: 'User not found or unauthorized' });
-        }
-
         await blog.findOneAndDelete({ title });
 
         res.status(200).json({ message: 'Blog deleted successfully.' });
@@ -118,4 +125,4 @@ const deleteBlog = async (req, res) => {
 };
 
 
-export { showBlog, createBlog, searchBlog, updateBlog , deleteBlog}
+export { showBlog, createBlog, searchBlog, updateBlog , deleteBlog , findBlogByEmail}

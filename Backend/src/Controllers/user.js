@@ -34,11 +34,13 @@ const userLogin = async (req, res) => {
             return res.status(400).json({ error: "please signup your account ..." })
         }
 
+        const name = userData.name 
         const isPasswordMatch = await bcrypt.compare(password, userData.password);
         if (isPasswordMatch) {
             const token = createToken(email)
-            res.cookie('token', token)
-            res.status(200).json({ message: "successfully login..." })
+            res.cookie('token', token, { httpOnly: true }); 
+            res.status(200).json({ message: "successfully login..." , token , email , name})
+            console.log(token);
         } else {
             return res.status(400).json({ error: "password is not matching..." })
         }

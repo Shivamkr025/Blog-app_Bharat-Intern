@@ -1,12 +1,14 @@
 import express from 'express';
-import {showBlog , createBlog , searchBlog , updateBlog , deleteBlog} from '../Controllers/blog.js'
+import {showBlog , createBlog , searchBlog , updateBlog , deleteBlog , findBlogByEmail} from '../Controllers/blog.js'
 import { verifyToken } from '../Middleware/auth.js';
 
 const router = express.Router()
 
 router.get('/show/blog' , showBlog);
 
-router.post('/create/blog' ,verifyToken, createBlog) ;
+router.get('/find/blog/byEmail', findBlogByEmail);
+
+router.post('/create/blog' , createBlog) ;
 
 router.get('/search/blog' , searchBlog);
 

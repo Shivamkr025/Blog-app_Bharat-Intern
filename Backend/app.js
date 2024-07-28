@@ -22,8 +22,8 @@ app.use(cookieParser())
 app.use('/', userRouter)
 app.use('/', blogRouter)
 
-
-mongoose.connect('mongodb://localhost:27017/Blog-app')
+const connecting = process.env.ConnetURL
+mongoose.connect(connecting)
     .then(() => {
         console.log("connecting successfully...");
     }).catch((error) => {
