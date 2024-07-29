@@ -153,7 +153,6 @@ h2 {
 #blogContainer{
     /* border: 2px solid gray; */
     background-color: #ffffff;
-    margin: 40px;
 }
 #loginForm{
     width: 100%;
@@ -189,7 +188,7 @@ h2 {
 }
 
 .show-blog-container{
-    width: 90vw;
+    width: 100vw;
 }
 
 .shivam{
