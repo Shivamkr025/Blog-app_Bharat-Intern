@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (response.ok) {
                     alert('Blog created successfully!');
-                    window.location.href = '../index.html';
+                    window.location.href = '../pages/showBlog.html';
                 } else {
                     alert(data.message || 'Failed to create blog.');
                 }
