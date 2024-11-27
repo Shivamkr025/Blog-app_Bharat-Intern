@@ -32,9 +32,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(email);
 
         try {
-            const response = await fetch(`https://blog-app-bharat-intern.onrender.com/find/blog/byEmail?email=${encodeURIComponent(email)}`);
+            const response = await fetch(`https://blog-app-bharat-intern.onrender.com/find/blog/byEmail?email=${email}`);
 
             const data = await response.json();
+            
 
             if (response.ok) {
                 const blogContainer = document.querySelector('#own-blog');

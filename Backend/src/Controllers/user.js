@@ -12,7 +12,6 @@ const userSignup = async (req, res) => {
             return res.status(400).json({ error: "user already create account " })
         }
         
-
         const passwordHash = await bcrypt.hash(password, salt)
         const submit = new User({ ...req.body, password: passwordHash })
         await submit.save()
