@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    await fetchAndDisplayBlogs();
+    fetchAndDisplayBlogs();
 
     const findByEmail = async () => {
         const email = localStorage.getItem('email');
@@ -58,5 +58,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    await findByEmail();
+    findByEmail();
 });
