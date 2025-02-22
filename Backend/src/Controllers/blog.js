@@ -53,9 +53,10 @@ const createBlog = async (req, res) => {
         author,
         image: imageUrl, // Store image URL in the blog document
       });
-  
+      
       // Save the blog post
       const savedBlog = await newBlog.save();
+      console.log(savedBlog);
       res.status(201).json({ message: 'Blog created successfully!', blog: savedBlog });
     } catch (error) {
       console.error('Error creating blog:', error);
