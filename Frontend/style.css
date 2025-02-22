@@ -3,45 +3,30 @@
     font-weight: 400;
     font-style: normal;
 }
+.nav-container {
+    padding: 0px 50px;
+    background: transparent;  /* Makes navbar transparent */
+}
 
 .navbar-nav {
     margin: 0 auto;
 }
-.nav-container{
-    padding: 0px 50px 0px 50px;
-    background-color: rgba(232, 232, 232, 0.675);
-}
-.nav-container li{
+
+.nav-container li {
     font-size: 22px;
     font-weight: 500;
 }
-.blog-container{
-    height: 70vh;
-    margin: 20px;
-}
-.title-container a{
+
+.title-container a {
     font-size: 20px;
     font-weight: 600;
 }
 
-.title-container i{
+.title-container i {
     color: orange;
     font-size: 20px;
 }
 
-.featurette-box {
-    text-align: justify;
-    text-align-last: left;
-}
-
-.form-container{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
 
 form{
     width: 60%;
@@ -89,65 +74,56 @@ form{
 
 /* here i start write css for create blog page  */
 
-.blog-container {
-    max-width: 800px;
-    margin: 50px auto;
+/* Fix navbar visibility */
+.navbar {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Prevent form from touching the navbar */
+.create-container {
+    margin-top: 80px; /* Adjust margin so the form doesn't touch the navbar */
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#blogForm{
+    width: 100%;
+}
+/* Style the form */
+.blog-form {
+    width: 100%;
+    max-width: 100%;
+    background: white;
     padding: 20px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.blog-image {
-    background-image: url('./blog_01.jpg'); /* Add the path to your image */
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    width: 200px;
-    margin-right: 20px;
-    border-radius: 8px;
-}
-
-.form-container {
-    flex-grow: 1;
-}
-
-h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-}
-
-.form-group label {
+h3 {
     font-weight: bold;
-    color: #555;
+    color: #333;
+    text-align: center;
+}
+
+label {
+    font-weight: 600;
+    color: #444;
+}
+
+.form-control {
+    border-radius: 5px;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-.create-container{
-    margin-top: 2%;
-    height: 90vh;
-    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.328);
-    border-radius: 10px;
-    /* background-color: rgba(82, 110, 100, 0.549); */
-}
-
-#blogTitle{
-    width: 20rem;
-}
-
-#blogContent{
-    width: 20rem;
-}
 /* here start to write blog show data */
 
 #blogContainer{

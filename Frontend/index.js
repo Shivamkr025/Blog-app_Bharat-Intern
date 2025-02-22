@@ -78,27 +78,42 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (createBlogForm) {
         createBlogForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
-            const title = document.querySelector('#blogTitle').value;
-            const content = document.querySelector('#blogContent').value;
+    
+            // Get form values
+            const title = document.querySelector('#blogTitle').value.trim();
+            const content = document.querySelector('#blogContent').value.trim();
+            const category = document.querySelector('#blogCategory').value;
+            const imageFile = document.querySelector('#blogImage').files[0]; // Get uploaded image
             const email = localStorage.getItem('email');
-
+    
             if (!email) {
                 alert('Please log in to create a blog.');
                 return;
             }
-
+    
+            if (!title || !content || !category) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+    
+            // Prepare FormData for sending including image upload
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('content', content);
+            formData.append('category', category);
+            formData.append('author', email);
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
+    
             try {
                 const response = await fetch('https://blog-app-bharat-intern.onrender.com/create/blog', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ title, content, author: email })
+                    body: formData
                 });
-
+    
                 const data = await response.json();
-
+    
                 if (response.ok) {
                     alert('Blog created successfully!');
                     window.location.href = '../pages/showBlog.html';
@@ -111,6 +126,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+    
     
 });
 
