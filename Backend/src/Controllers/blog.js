@@ -1,5 +1,6 @@
 import { blog } from "../Models/blogSchema.js";
 import { cloudinary } from '../config/cloudinary.js'
+
 const showBlog = async (req, res) => {
 
     try {
@@ -46,7 +47,7 @@ const createBlog = async (req, res) => {
       }
   
       // Create new blog post
-      const newBlog = new Blog({
+      const newBlog = new blog({
         title,
         content,
         author,
