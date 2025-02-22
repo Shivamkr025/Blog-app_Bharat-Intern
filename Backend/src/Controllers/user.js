@@ -97,8 +97,7 @@ const deleteUser = async (req, res) => {
         if (!findData) {
             return res.status(400).json({ error: "User not found." });
         }
-
-       
+     
         if (req.user.email !== findData.email) {
             return res.status(403).json({ message: "Unauthorized. You can only delete your own account." });
         }

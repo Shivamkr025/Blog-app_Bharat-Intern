@@ -1,6 +1,5 @@
 import { blog } from "../Models/blogSchema.js";
-import { User } from "../Models/userSchema.js";
-
+import { cloudinary } from '../config/cloudinary.js'
 const showBlog = async (req, res) => {
 
     try {
@@ -30,29 +29,38 @@ const findBlogByEmail = async (req, res) => {
 
 
 const createBlog = async (req, res) => {
-    const { title, content , author} = req.body;
     try {
-
-        const checkBlog = await blog.findOne({ title });
-        if (checkBlog) {
-            return res.status(401).json({ message: 'Please change the title...' });
-        }
-
-        const newPost = new blog({
-            title,
-            content,
-            author
-        });
-
-        const submit = await newPost.save();
-        console.log(submit);
-        res.status(201).json({ submit });
+      const { title, content, author } = req.body;
+  
+      // Check if the blog title already exists
+      const existingBlog = await blog.findOne({ title });
+      if (existingBlog) {
+        return res.status(400).json({ message: 'Title already exists, please use a different one.' });
+      }
+  
+      // Upload Image if available
+      let imageUrl = '';
+      if (req.file) {
+        const result = await cloudinary.uploader.upload(req.file.path);
+        imageUrl = result.secure_url; // Store image URL
+      }
+  
+      // Create new blog post
+      const newBlog = new Blog({
+        title,
+        content,
+        author,
+        image: imageUrl, // Store image URL in the blog document
+      });
+  
+      // Save the blog post
+      const savedBlog = await newBlog.save();
+      res.status(201).json({ message: 'Blog created successfully!', blog: savedBlog });
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Something went wrong in create blog...' });
+      console.error('Error creating blog:', error);
+      res.status(500).json({ error: 'Something went wrong while creating the blog.' });
     }
-};
-
+  };
 const searchBlog = async (req, res) => {
 
     let { title } = req.query;
