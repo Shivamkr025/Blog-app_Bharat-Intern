@@ -1,0 +1,36 @@
+.about-Container {
+    height: 95vh;
+    padding-top: 5%;
+}
+
+.blog-demo-container {
+   padding-top: 5%;
+    height: 70vh;
+}
+
+/* Fixed Background Image */
+.blog-banners {
+    width: 100%;
+    height: 150vh;
+    background: url("../assets/banner05.jpg") center/cover no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Keeps it in the background */
+}
+
+/* Footer Banner */
+.blog-banner {
+    height: 60vh;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+
+.Latest-blog-container{
+    background-color: rgb(243, 237, 237);
+}
+.HomeAbout{
+    background-color: rgb(239, 239, 239);
+}
