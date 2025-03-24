@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar'
 import AboutMe from '../Components/About'
 import Footer from '../Components/Footer'
 import HeroSection from '../Components/HeroSection'
-import Image from '../assets/banner06.jpg'
+import Image from '../assets/blog_02.jpg'
 
 function About() {
   return (

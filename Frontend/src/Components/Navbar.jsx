@@ -21,6 +21,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg fixed-top shadow-sm ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="container">
+      <i className="bi bi-feather" style={{ fontSize: '2rem', color: 'white' }}></i>
         <Link className="navbar-brand" to="/">InspireJourney</Link>
         <button 
           className="navbar-toggler custom-toggler" 

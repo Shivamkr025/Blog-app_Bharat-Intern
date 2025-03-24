@@ -1,20 +1,18 @@
-
 /* Navbar */
-
 .about-sections {
-    background: linear-gradient(to right, #1e3c72, #2a5298)
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 
 .navbar-nav .nav-link {
     font-size: 1.1rem;
     font-weight: 500;
-    color: white !important;
+    color: #f0e9dc !important; /* Off-white */
     transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: #ffc107 !important;
+    color: #d4af37 !important; /* Gold color */
 }
 
 /* About Section */
@@ -22,53 +20,56 @@
     min-height: 90vh;
     display: flex;
     flex-direction: column;
+    background: #535353; /* Dark background */
+    padding: 50px 0;
 }
 
 .about-content {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
     border-radius: 15px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Section Titles */
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: #ffc107;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    color: #d4af37;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Profile Image */
 .profile-img {
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid #ffc107;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 4px solid #d4af37;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
 }
 
 /* About Text */
 .about-text {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: 1.8;
-    margin-bottom: 15px;
+    color: #f0e9dc;
+    line-height: 1.9;
+    margin-bottom: 20px;
 }
 
 /* Highlight */
 .highlight {
-    color: #ffc107;
+    color: #d4af37;
     font-weight: bold;
 }
 
 /* Skills */
 .skills-title {
-    font-size: 1.5rem;
-    color: #ffc107;
-    margin-top: 20px;
+    font-size: 1.6rem;
+    color: #d4af37;
+    margin-top: 25px;
 }
 
 .skills-list {
@@ -77,15 +78,16 @@
 }
 
 .skills-list li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    padding-left: 20px;
+    font-size: 1.15rem;
+    color: #f0e9dc;
+    margin-bottom: 12px;
+    padding-left: 24px;
     position: relative;
 }
 
 .skills-list li::before {
     content: "✔";
-    color: #ffc107;
+    color: #d4af37;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -93,9 +95,7 @@
 }
 
 
-
-/* footer css style here  */
-
+/* Footer Section */
 .blog-banners {
     width: 100%;
     height: 100vh;
@@ -104,5 +104,20 @@
     top: 0;
     left: 0;
     z-index: -1;
-    /* Keeps it in the background */
+}
+
+/* Blog Banner Text */
+.blog-banner {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 50px 20px;
+}
+
+.blog-banner h2 {
+    font-size: 2.3rem;
+    color: #f0e9dc;
+}
+
+.blog-banner p {
+    font-size: 1.1rem;
+    color: #d4d4d4;
 }
