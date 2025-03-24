@@ -4,7 +4,7 @@ import HeroSection from '../Components/HeroSection'
 import LatestBlogs from '../Components/LatestBlog'
 import HomeAbout from '../Components/HomeAbout'
 import Footer from '../Components/Footer'
-import Image from '../assets/banner01.jpg'
+import Image from '../assets/banner10.jpg'
 
 function Home() {
   return (
